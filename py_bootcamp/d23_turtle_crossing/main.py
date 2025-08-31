@@ -13,7 +13,8 @@ car_manager = CarManager()
 scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkey(player.move, "Up")
+screen.onkey(player.move_forward, "Up")
+screen.onkey(player.move_backward, "Down")
 
 game_is_on = True
 while game_is_on:
