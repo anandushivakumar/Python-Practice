@@ -12,12 +12,12 @@ class Scoreboard(Turtle):
 
     # saving high score in a file
     def save_highscore(self):
-        with open("data.txt", mode = "w") as file:
+        with open(r"C:\Users\Anand\OneDrive\Desktop\Repositories\Python\Projects and Practice\Python-Practice\Python-Practice\py_bootcamp\d20_d21_snake_game\data.txt", mode = "w") as file:
             file.write(f"{self.highscore}")
     
     # loading high score from a file
     def load_highscore(self):
-        with open("data.txt", mode = "r") as file:
+        with open(r"C:\Users\Anand\OneDrive\Desktop\Repositories\Python\Projects and Practice\Python-Practice\Python-Practice\py_bootcamp\d20_d21_snake_game\data.txt", mode = "r") as file:
             self.highscore = int(file.read())
     
     def update_scoreboard(self):
