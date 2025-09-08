@@ -64,19 +64,20 @@ def save_info():
 
 # ---------------------------- FIND PASSWORD ------------------------------- #
 def find_password():
-    website = website_entry.get()
+    website = website_entry.get() # get user input for website name
     try:
-        with open(file=r"py_bootcamp/d29_d30_password_manager/data.json", mode = "r") as file:
-            data = json.load(file)
-            email = data[website]["email"]
+        with open(file=r"py_bootcamp/d29_d30_password_manager/data.json", mode = "r") as file: # open file
+            data = json.load(file) # load json data
+            email = data[website]["email"] # get mail and password
             password = data[website]["password"]
-            messagebox.showinfo(title = website, message=f"Website: {website}\nEmail: {email}\nPassword: {password}")
-    except FileNotFoundError:
+            messagebox.showinfo(title = website, message=f"Website: {website}\nEmail: {email}\nPassword: {password}") # display info
+    except FileNotFoundError: # if file is not found
         messagebox.showinfo(title = "Error", message = "No data file found")
-    except KeyError:
+    except KeyError: # if the website is not found
         messagebox.showinfo(title = "Error", message = f"No details for {website} found")
 
 # ---------------------------- UI SETUP ------------------------------- #
+# creating window and window config
 window = Tk()
 window.title("Tkinter Password Manager")
 window.config(padx=50, pady = 50)
