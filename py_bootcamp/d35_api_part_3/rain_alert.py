@@ -1,6 +1,11 @@
 import requests
+import os
+from dotenv import load_dotenv, dotenv_values
 
-API_ID = "129b616b2748b4b2f1896c37603ff518"
+load_dotenv()
+
+# 129b616b2748b4b2f1896c37603ff518
+API_ID = os.getenv('API_ID')
 MY_LAT = 25.20
 MY_LON = 55.29
 
