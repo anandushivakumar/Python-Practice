@@ -1,11 +1,11 @@
 import requests
 import os
-from dotenv import load_dotenv, dotenv_values
+# from dotenv import load_dotenv, dotenv_values
 
-load_dotenv()
+# load_dotenv()
 
 # 129b616b2748b4b2f1896c37603ff518
-API_ID = os.getenv('API_ID')
+API_ID = os.getenv('WEATHERAPP_API_KEY')
 MY_LAT = 25.20
 MY_LON = 55.29
 
@@ -19,7 +19,7 @@ parameters = {
 response = requests.get("https://api.openweathermap.org/data/2.5/forecast", params = parameters)
 response.raise_for_status()
 data = response.json()
-#print(data)
+# print(data)
 
 # check weather data for the next 12 hours and primt temp and ask to bring umbrella if temperature is above 35C
 for entry in data["list"]:
