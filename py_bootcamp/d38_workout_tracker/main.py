@@ -20,26 +20,26 @@ response = requests.post(url = HOST_URL, json = params_nutri, headers = headers_
 result = response.json()
 # print(result)
 
-# json results
-for entry in result["exercises"]:
-    duration = entry["duration_min"]
-    exercise = entry["name"]
-    calories = entry["nf_calories"]
-    print(f"{duration} mins - {exercise} - {calories} calories")
-
 current_date = datetime.today().strftime("%d/%m/%Y")
 current_time = datetime.today().strftime("%H:%M:%S")
 
-# POST data to Google Sheets using Sheety
-params_sheety = {
+# json results
+for entry in result["exercises"]:
+    duration = entry["duration_min"]
+    exercise = entry["name"].title()
+    calories = entry["nf_calories"]
+    print(f"{duration} mins - {exercise} - {calories} calories")
+
+    # post data to google sheets using sheety
+    params_sheety = {
     "workout":{
         "date": current_date,
         "time": current_time, 
         "exercise": exercise,
         "duration": int(duration),
         "calories": int(calories)
+        }
     }
-}
 
-response_sheety = requests.post(url = ROW_ENDPOINT, json = params_sheety)
-print(response_sheety.text)
+    response_sheety = requests.post(url = ROW_ENDPOINT, json = params_sheety)
+    print(response_sheety.text)
