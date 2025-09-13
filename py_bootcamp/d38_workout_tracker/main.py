@@ -41,5 +41,10 @@ for entry in result["exercises"]:
         }
     }
 
-    response_sheety = requests.post(url = ROW_ENDPOINT, json = params_sheety)
+    response_sheety = requests.post(
+        url = ROW_ENDPOINT,
+        json = params_sheety, 
+        auth=(os.getenv("USER", ""), os.getenv("PASS", "")
+        )
+    )
     print(response_sheety.text)
