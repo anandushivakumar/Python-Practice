@@ -50,10 +50,12 @@ for song in song_names:
 
 
 # creating spotify playlist using song names
+playlist_name = input("Enter the name of the playlist: ")
+playlist_desc = input("Enter the description of the playlist: ")
 
-playlist = sp.user_playlist_create(user=user_id, name=f"Billboard Hot 100 - {date_prompt}", description=f"Billboard Hot 100 - {date_prompt}", public=False)
+playlist = sp.user_playlist_create(user=user_id, name=playlist_name, description=playlist_desc, public=False)
 print(playlist)
 
 sp.playlist_add_items(playlist_id=playlist['id'], items=song_uris) # type: ignore
 
-print("Playlist created successfully")
+print("Playlist created successfully") 
